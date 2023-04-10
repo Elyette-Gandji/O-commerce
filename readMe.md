@@ -11,6 +11,7 @@ Ce projet est un site e-commerce qui permet de gérer les produits, les catégor
     * Vue.js (framework)
     * axios (http requests)
     * pinia (state management)
+    * dotenv (env variables)
 
 ### Backend
 
@@ -21,6 +22,7 @@ Ce projet est un site e-commerce qui permet de gérer les produits, les catégor
     * better-sse (server-sent events)
     * postgres (database)
     * redis (cache)
+    * dotenv (env variables)
 
 ## Installation
 
