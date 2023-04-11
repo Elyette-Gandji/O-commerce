@@ -55,8 +55,7 @@ Ce projet est un site e-commerce qui permet de gérer les produits, les catégor
 
 [users stories](/docs/stories.md): # Path: stories.md
 
- [mcd-mlc](/docs/mcd-mlc.md): # Path: mcd-mlc.md
+ [mcd-mld](/docs/mcd-mld.md): # Path: mcd-mlc.md
 
-[mld](/docs/mld.md): # Path: mld.md
 
 [répartition des tâches](/docs/repartition.md): # Path: repartition.md
