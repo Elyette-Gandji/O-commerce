@@ -44,9 +44,8 @@ Ce projet est un site e-commerce qui permet de gérer les produits, les catégor
 
     Le frontend est composé de 3 modules :
 
-        * api : contient les services
-        * core : contient les composants, les stores et les routes
-        * app : contient le serveur
+        * public : contient les fichiers rendus
+        * src : contient les assets, les components et les stores
 
 ### Etapes du projet
 
