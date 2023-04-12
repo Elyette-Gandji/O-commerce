@@ -35,11 +35,10 @@ Ce projet est un site e-commerce qui permet de gérer les produits, les catégor
 
     Backend
 
-    Le backend est composé de 3 modules :
+    Le backend est composé de 2 modules :
 
-        * api : contient les routes et les controllers
-        * core : contient les modèles, les services et les middlewares
-        * app : contient le serveur
+        * ap : contient les controllers, les middlewares, les models et les routes
+        * data : contient le fichier de base de données
 
      Frontend
 
