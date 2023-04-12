@@ -9,7 +9,7 @@ import { createPinia } from "pinia";
 import "./style.css";
 // on importe le fichier router.js qui contient les routes de l'application
 // ces routes sont utilisées par le composant <router-view> dans App.vue pour afficher les composants
-import router from "./routes/router.js";
+import router from "./routes/route.js";
 import App from "./App.vue";
 // on crée l'application avec la fonction createApp de Vue
 const app = createApp(App);
