@@ -1,5 +1,8 @@
 import { createApp } from "vue";
 
+// useHead est un plugin qui permet de gérer les balises <head> de l'application
+import { createHead } from "@unhead/vue";
+import { InferSeoMetaPlugin } from "@unhead/addons";
 // axios est une librairie qui permet de faire des requêtes HTTP
 import axios from "axios";
 
@@ -15,6 +18,10 @@ import App from "./App.vue";
 const app = createApp(App);
 // on utilise le plugin pinia pour gérer les données de l'application
 app.use(createPinia());
+
+// on utilise le plugin vue-headed pour gérer les balises <head> de l'application
+app.use(createHead({ plugins: [InferSeoMetaPlugin()] }));
+// on utilise le router pour gérer les routes de l'application
 app.use(router);
 // on utilise axios pour faire des requêtes HTTP
 app.config.globalProperties.$axios = axios;
