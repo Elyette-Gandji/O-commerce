@@ -5,7 +5,7 @@ BEGIN;
 
 -- D'abord on supprime les tables 'si elles existent'
 
-DROP TABLE IF EXISTS "role", "user", "payment", "user_has_payment", "address", "category", "promotion", "order", "product", "order_has_product", "comment", "user_has_vote";
+DROP TABLE IF EXISTS "role", "user", "payment", "user_has_payment", "address", "category", "promotion", "order", "product", "order_has_product", "category_has_product", "comment", "user_has_vote";
 
 -- Ensuite on les (re)crées
 
@@ -77,8 +77,8 @@ CREATE TABLE "category" (
 
 CREATE TABLE "promotion" (
     "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "percent" DECIMAL(5,2),
-    "validity" DATE,
+    "percent" INT,
+    "validity" DATE NOT NULL,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
