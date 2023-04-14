@@ -1,16 +1,16 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require('../db');
 
-class User_has_vote extends Model {}
+class UserHasVote extends Model {}
 
-User_has_vote.init({
+UserHasVote.init({
   rating: {
     type: DataTypes.DECIMAL,
     allowNull: false
   }
 }, {
   sequelize, 
-  tableName: 'rating'
+  tableName: 'user_has_vote'
 })
 
-module.exports = User_has_vote;
+module.exports = UserHasVote;

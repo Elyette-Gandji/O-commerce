@@ -7,8 +7,8 @@ const Promotion = require('./Promotion');
 const Role = require('./Role');
 const User = require('./User');
 const Order = require('./Order');
-const Order_has_product = require('./Order_has_product');
-const User_has_vote = require('./User_has_vote');
+const OrderHasProduct = require('./OrderHasProduct');
+const UserHasVote = require('./UserHasVote');
 
 Address.belongsTo(User, {
   foreignKey: 'user_id',
@@ -139,6 +139,6 @@ module.exports = {
   Promotion,
   Role,
   User,
-  Order_has_product,
-  User_has_vote
+  OrderHasProduct,
+  UserHasVote
 };
