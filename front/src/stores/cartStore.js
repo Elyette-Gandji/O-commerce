@@ -38,6 +38,7 @@ export const useCartStore = defineStore("cart", () => {
     }, 0);
   });
 
+  // Je définis une computed qui permet de calculer la quantité totale de produits dans le panier
   const totalQuantity = computed(() => {
     return cart.value.reduce((total, product) => {
       return total + product.quantity;

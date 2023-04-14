@@ -1,10 +1,20 @@
 <script setup>
 import { computed, toRefs } from "vue";
 import { useCartStore } from "../../stores/cartStore";
+// j'ai besoin de la fonction useCartStore pour pouvoir utiliser le store
 const cartStore = useCartStore();
 
+/**
+ * Je récupère les propriétés du store que je veux utiliser dans ce composant
+ * et je les déstructure dans un objet en utilisant la fonction toRefs
+ *  qui permet de conservé la réactivité des propriétés
+ */
 const { totalQuantity, total } = toRefs(cartStore);
 
+/**
+ * Je crée une propriété computed qui va me permettre de gérer le pluriel
+ * de la quantité de produits dans le panier
+ */
 const pluralize = computed(() => {
   return totalQuantity.value > 1
     ? `${totalQuantity.value} produits`
