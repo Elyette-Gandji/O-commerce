@@ -1,13 +1,14 @@
 <script setup>
-import { ref, computed } from "vue";
+import { computed, toRefs } from "vue";
+import { useCartStore } from "../../stores/cartStore";
+const cartStore = useCartStore();
 
-const cart = ref({
-  items: 5,
-  total: 120,
-});
+const { totalQuantity, total } = toRefs(cartStore);
 
 const pluralize = computed(() => {
-  return cart.value.items > 1 ? "s" : "";
+  return totalQuantity.value > 1
+    ? `${totalQuantity.value} produits`
+    : `${totalQuantity.value} produit`;
 });
 </script>
 <template>
@@ -28,7 +29,11 @@ const pluralize = computed(() => {
             d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
           />
         </svg>
-        <span class="badge badge-sm indicator-item">{{ cart.items }}</span>
+        <Transition name="fade">
+          <span v-if="totalQuantity" class="badge badge-sm indicator-item">{{
+            totalQuantity
+          }}</span>
+        </Transition>
       </div>
     </label>
     <div
@@ -36,12 +41,10 @@ const pluralize = computed(() => {
       class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
     >
       <div class="card-body">
-        <span class="font-bold text-lg"
-          >{{ cart.items }} produit{{ pluralize }}</span
-        >
-        <span class="text-info">Sous total: {{ cart.total }}€</span>
+        <span class="font-bold text-lg"> {{ pluralize }}</span>
+        <span class="text-info">Montant total: {{ total }}€</span>
         <div class="card-actions">
-          <button class="btn btn-primary btn-block" :disabled="!cart">
+          <button class="btn btn-primary btn-block" :disabled="!totalQuantity">
             Consulter mon panier
           </button>
         </div>
@@ -49,3 +52,14 @@ const pluralize = computed(() => {
     </div>
   </div>
 </template>
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
