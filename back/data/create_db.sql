@@ -100,6 +100,7 @@ CREATE TABLE "product" (
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "stock" INT,
+    "price" DECIMAL(6,2) NOT NULL,
     "promotion_id" INTEGER NOT NULL REFERENCES "promotion"("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
