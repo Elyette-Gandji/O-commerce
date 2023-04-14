@@ -12,7 +12,7 @@ import CartIcon from "../utilities/CartIcon.vue";
       <div class="form-control">
         <input
           type="text"
-          placeholder="Rechercher"
+          placeholder="Rechercher un produit"
           class="input input-bordered"
         />
       </div>
