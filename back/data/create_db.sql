@@ -111,6 +111,7 @@ CREATE TABLE "product" (
 CREATE TABLE "order_has_product" (
     "product_id" INTEGER NOT NULL REFERENCES "product"("id") ON DELETE CASCADE,
     "order_id" INTEGER NOT NULL REFERENCES "order"("id") ON DELETE CASCADE,
+    "quantity" INT DEFAULT 1,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
