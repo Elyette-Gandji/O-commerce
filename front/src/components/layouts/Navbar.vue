@@ -4,11 +4,15 @@ import CartIcon from "../utilities/CartIcon.vue";
 <template>
   <nav class="navbar bg-base">
     <div class="flex-1">
-      <a class="btn btn-ghost normal-case text-xl">O'Commerce</a>
+      <router-link to="/" class="btn btn-ghost normal-case text-xl"
+        >O'Commerce</router-link
+      >
     </div>
 
     <div class="gap-3 hidden sm:flex">
-      <button class="btn btn-primary">se connecter</button>
+      <router-link to="/signin" class="btn btn-primary"
+        >se connecter</router-link
+      >
       <div class="form-control">
         <input
           type="text"
