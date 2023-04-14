@@ -10,7 +10,7 @@ import CartIcon from "../utilities/CartIcon.vue";
     </div>
 
     <div class="gap-3 hidden sm:flex">
-      <router-link to="/signin" class="btn btn-primary"
+      <router-link to="/signin" class="btn btn-neutral"
         >se connecter</router-link
       >
       <div class="form-control">
