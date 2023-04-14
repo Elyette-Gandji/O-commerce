@@ -100,6 +100,7 @@ CREATE TABLE "product" (
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "stock" INT,
+    "price" DECIMAL(6,2) NOT NULL,
     "promotion_id" INTEGER NOT NULL REFERENCES "promotion"("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
@@ -110,6 +111,7 @@ CREATE TABLE "product" (
 CREATE TABLE "order_has_product" (
     "product_id" INTEGER NOT NULL REFERENCES "product"("id") ON DELETE CASCADE,
     "order_id" INTEGER NOT NULL REFERENCES "order"("id") ON DELETE CASCADE,
+    "quantity" INT DEFAULT 1,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
