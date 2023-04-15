@@ -27,6 +27,20 @@ const categoryController = {
       console.trace(error);
       res.status(500).json(error.toString());
     }
+  },
+
+  // Fonction pour créer une catégorie
+  async createOneCategory(req, res) {
+    try {
+      const { name } = req.body;
+      const category = await Category.create({
+        name
+      });
+      res.status(201).json(category);
+    } catch (error) {
+      console.trace(error);
+      res.status(500).json(error.toString());
+    }
   }
 };
 
