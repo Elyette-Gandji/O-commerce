@@ -1,0 +1,33 @@
+const { Category } = require('../models');
+
+const categoryController = {
+
+  // Fonction pour récupérer toutes les catégories en incluant ses produits
+  async getAllCategory(_req, res) {
+    try {
+      const categories = await Category.findAll({
+        include: 'products'
+      });
+      res.status(200).json(categories);
+    } catch (error) {
+      console.trace(error);
+      res.status(500).json(error.toString());        
+    }
+  },
+
+  // Fonction pour récupérer une categorie en incluant ses produits
+  async getOneCategory(req, res) {
+    const id = req.params.id;
+    try {
+      const categorie = await Category.findByPk(id, {
+        include: 'products'
+      });
+      res.status(200).json(categorie);
+    } catch (error) {
+      console.trace(error);
+      res.status(500).json(error.toString());
+    }
+  }
+};
+
+module.exports = categoryController;
