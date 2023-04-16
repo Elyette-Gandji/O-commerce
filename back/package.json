@@ -19,8 +19,5 @@
     "pg": "^8.10.0",
     "redis": "^4.6.5",
     "sequelize": "^6.31.0"
-  },
-  "devDependencies": {
-    "node-dev": "^8.0.0"
   }
 }
