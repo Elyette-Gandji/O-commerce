@@ -41,6 +41,23 @@ const categoryController = {
       console.trace(error);
       res.status(500).json(error.toString());
     }
+  },
+
+  // Fonction pour supprimer une categorie
+  async deleteOneCategory(req, res) {
+    try {
+      const id = req.params.id;
+      const category = await Category.findByPk(id);
+      if(!category) {
+        res.status(404).json('Cant find category' + id);
+      } else {
+        await category.destroy();
+        res.status(204).json();
+      }
+    } catch (error) {
+      console.trace(error);
+      res.status(500).json(error.toString());
+    }
   }
 };
 

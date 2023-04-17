@@ -1,16 +1,12 @@
-const { body, validationResult } = require('express-validator');
+const { param, validationResult } = require('express-validator');
 
 /**
- * Middleware pour valider la requête de création d'une catégorie 
- * en utilisant la validation via express-validator.
+ * Middleware pour vérifier que l'id de la requête est bien un nombre
+ * en utilisant la méthode isInt() de express-validator
  */
-const validateCategory = [
-  /**
-   * On definie la validation du champs name qui ne peut être vide
-   * Et on utilise la méthode trim qui supprime les espaces blancs
-   * avant et après la valeur du champs.
-   */
-  body('name').trim().notEmpty().withMessage('Name is required').escape(),
+const validateParam = [
+
+  param('id').isInt().withMessage('Id must be a number'),
   /**
    * Middleware pour valider les données de la requête via la méthode validationResult
    * Si les données ne sont pas valider on renvoie un tableau d'erreurs
@@ -30,6 +26,6 @@ const validateCategory = [
       res.status(500).json(error.toString());
     }
   },
-];
+]
 
-module.exports = validateCategory;
+module.exports = validateParam;

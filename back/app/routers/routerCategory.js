@@ -2,18 +2,23 @@ const express = require('express');
 
 /*--------------- Controllers ---------------*/
 const categoryController = require('../controllers/categoryController');
-const isAdmin = require('../middlewares/isAdmin');
+// todo const isAdmin = require('../middlewares/isAdmin');
 const validateCategory = require('../validator/validateCategory');
+const validateParam = require('../validator/validateParam');
 
 /*--------------- Routes ---------------*/
 const router = express.Router();
 
 // Route GET 
-router.get('/categories', categoryController.getAllCategory);
-router.get('/categories/:id', categoryController.getOneCategory);
+router.get('/', categoryController.getAllCategory);
+router.get('/:id', validateParam, categoryController.getOneCategory);
 
 // Route POST
-router.post('/categories', isAdmin, validateCategory, categoryController.createOneCategory);
+// Todo ajouter isAdmin
+router.post('/', validateCategory, categoryController.createOneCategory);
+
+// Route DELETE
+router.delete('/:id', validateParam, categoryController.deleteOneCategory);
 
 /* Export */
 module.exports = router;
