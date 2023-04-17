@@ -2,7 +2,7 @@ const express = require('express');
 
 /*--------------- Controllers ---------------*/
 const categoryController = require('../controllers/categoryController');
-// todo const isAdmin = require('../middlewares/isAdmin');
+const isAdmin = require('../middlewares/isAdmin');
 const validateCategory = require('../validator/validateCategory');
 const validateParam = require('../validator/validateParam');
 
@@ -14,8 +14,7 @@ router.get('/', categoryController.getAllCategory);
 router.get('/:id', validateParam, categoryController.getOneCategory);
 
 // Route POST
-// Todo ajouter isAdmin
-router.post('/', validateCategory, categoryController.createOneCategory);
+router.post('/', isAdmin, validateCategory, categoryController.createOneCategory);
 
 // Route DELETE
 router.delete('/:id', validateParam, categoryController.deleteOneCategory);
