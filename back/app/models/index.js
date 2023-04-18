@@ -102,17 +102,15 @@ Product.belongsToMany(Order, {
   through: 'order_has_product'
 });
 
-Comment.belongsToMany(User, {
-  foreignKey: "user_id",
-  otherKey: "comment_id",
-  as: "users",
+Product.belongsToMany(User, {
+  foreignKey: "product_id",
+  as: "votes",
   through: "user_has_vote"
 });
 
-User.belongsToMany(Comment, {
-  foreignKey: "comment_id",
-  otherKey: "user_id",
-  as: "comments",
+User.belongsToMany(Product, {
+  foreignKey: "user_id",
+  as: "products",
   through: "user_has_vote"
 });
 
