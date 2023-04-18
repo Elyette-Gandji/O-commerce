@@ -1,9 +1,10 @@
-
 require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
+
 const router = require('./app/routers');
+
 
 const app = express();
 
@@ -15,10 +16,10 @@ app.use(express.urlencoded({ extended: true })); // Pour parser les body de type
 app.use(express.json()); // Pour parser les body de type JSON
 
 // On plug le router
-app.use(router);
+//app.use(router);
 
 // On lance l'application
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`API demarrée sur le port ${port}`);
 });
