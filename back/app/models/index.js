@@ -85,7 +85,7 @@ Product.belongsToMany(Category, {
   foreignKey: 'category_id',
   otherKey: 'product_id',
   as: 'categories',
-  through: 'category_as_product'
+  through: 'category_has_product'
 });
 
 Order.belongsToMany(Product, {
@@ -130,7 +130,6 @@ module.exports = {
   Address,
   Category,
   Comment,
-  Order,
   Order,
   Payment,
   Product,
