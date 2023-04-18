@@ -20,7 +20,8 @@ Payment.init(
   },
   {
     sequelize,
-    tableName: 'payment'
+    tableName: 'payment',
+    underscored: true
   }
 );
 
