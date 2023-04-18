@@ -11,7 +11,7 @@ const categoryController = {
       res.status(200).json(categories);
     } catch (error) {
       console.trace(error);
-      res.status(500).json(error.toString());        
+      res.status(500).json(error.toString());
     }
   },
 
