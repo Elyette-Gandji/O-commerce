@@ -10,5 +10,3 @@ const productRouter = require("./productRouter");
 
 // Toutes les routes qui commencent par /products seront cherché dans le productRouter.
 router.use("/products", productRouter);
-
-module.exports = router;
