@@ -85,7 +85,7 @@ const userController = {
    * Delete one specific User 
    * @param userId Id of the user from req.params
    */
-  deleteUser: async (req, res) => {
+  deleteOneUser: async (req, res) => {
     try {
       const userId = Number(req.params.id);
       const user = await findByPk(userId);
