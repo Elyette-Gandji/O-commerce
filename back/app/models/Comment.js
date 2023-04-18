@@ -13,9 +13,9 @@ Comment.init({
     allowNull: false
   }
 }, {
-  sequelize, 
+  sequelize,
   tableName: 'comment',
   underscored: true
-})
+});
 
 module.exports = Comment;
