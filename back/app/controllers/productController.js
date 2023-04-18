@@ -3,6 +3,7 @@ const { Product } = require('../models');
 module.exports = productController;
 
 const productController = {
+  
   getAllProducts: async (req, res) => {
     try {
         const products = await Product.findAll({
