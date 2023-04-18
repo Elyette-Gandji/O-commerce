@@ -26,7 +26,8 @@ Address.init({
   }
 }, {
   sequelize, 
-  tableName: 'address'
+  tableName: 'address',
+  underscored: true
 })
 
 module.exports = Address;

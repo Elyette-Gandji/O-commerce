@@ -10,7 +10,8 @@ UserHasVote.init({
   }
 }, {
   sequelize, 
-  tableName: 'user_has_vote'
+  tableName: 'user_has_vote',
+  underscored: true
 })
 
 module.exports = UserHasVote;

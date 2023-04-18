@@ -22,7 +22,8 @@ Product.init({
   }
 }, {
   sequelize, 
-  tableName: 'product'
+  tableName: 'product',
+  underscored: true
 })
 
 module.exports = Product;
