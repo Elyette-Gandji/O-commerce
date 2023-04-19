@@ -26,7 +26,7 @@ CREATE TABLE "user" (
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
   -- si l'on veut pouvoir supprimer un user qui contient un role, on est obligé de rajouter "ON DELETE CASCADE" qui aura pour conséquence de supprimer le role qui fait référence à la table user
-    "role_id" INTEGER NOT NULL REFERENCES "role"("id") ON DELETE CASCADE,
+    "role_id" INTEGER NOT NULL REFERENCES "role"("id") ON DELETE CASCADE DEFAULT 1,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ
 );
@@ -144,4 +144,5 @@ CREATE TABLE "user_has_vote" (
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+INSERT INTO "role" ("name") VALUES ('user');
 COMMIT;
