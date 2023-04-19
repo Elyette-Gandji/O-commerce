@@ -9,9 +9,9 @@ Category.init({
     allowNull: false
   }
 }, {
-  sequelize, 
+  sequelize,
   tableName: 'category',
   underscored: true
-})
+});
 
 module.exports = Category;

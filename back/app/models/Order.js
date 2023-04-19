@@ -9,9 +9,9 @@ Order.init({
     allowNull: false
   }
 }, {
-  sequelize, 
+  sequelize,
   tableName: 'order',
   underscored: true
-})
+});
 
 module.exports = Order;

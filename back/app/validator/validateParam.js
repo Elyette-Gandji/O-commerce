@@ -10,7 +10,7 @@ const validateParam = [
   /**
    * Middleware pour valider les données de la requête via la méthode validationResult
    * Si les données ne sont pas valider on renvoie un tableau d'erreurs
-   * contenant les erreurs de validation 
+   * contenant les erreurs de validation
    * Si les données sont valider on passe au middleware suivant via le next().
    */
   (req, res, next) => {
@@ -26,6 +26,6 @@ const validateParam = [
       res.status(500).json(error.toString());
     }
   },
-]
+];
 
 module.exports = validateParam;

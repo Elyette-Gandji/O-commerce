@@ -7,15 +7,15 @@ Address.init({
   street: {
     type: DataTypes.TEXT,
     allowNull: false
-  }, 
+  },
   zip: {
     type: DataTypes.INTEGER,
     allowNull: false
-  }, 
+  },
   city: {
     type: DataTypes.TEXT,
     allowNull: false
-  }, 
+  },
   country: {
     type: DataTypes.TEXT,
     allowNull: false
@@ -25,9 +25,9 @@ Address.init({
     allowNull: false
   }
 }, {
-  sequelize, 
+  sequelize,
   tableName: 'address',
   underscored: true
-})
+});
 
 module.exports = Address;

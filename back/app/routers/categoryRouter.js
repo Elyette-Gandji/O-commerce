@@ -9,7 +9,7 @@ const validateParam = require('../validator/validateParam');
 /*--------------- Routes ---------------*/
 const router = express.Router();
 
-// Route GET 
+// Route GET
 router.get('/', categoryController.getAllCategory);
 router.get('/:id', validateParam, categoryController.getOneCategory);
 

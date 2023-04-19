@@ -1,7 +1,7 @@
 const { body, validationResult } = require('express-validator');
 
 /**
- * Middleware pour valider la requête de création d'une catégorie 
+ * Middleware pour valider la requête de création d'une catégorie
  * en utilisant la validation via express-validator.
  */
 const validateCategory = [
@@ -14,7 +14,7 @@ const validateCategory = [
   /**
    * Middleware pour valider les données de la requête via la méthode validationResult
    * Si les données ne sont pas valider on renvoie un tableau d'erreurs
-   * contenant les erreurs de validation 
+   * contenant les erreurs de validation
    * Si les données sont valider on passe au middleware suivant via le next().
    */
   (req, res, next) => {
