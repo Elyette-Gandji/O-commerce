@@ -9,9 +9,8 @@ Role.init({
     allowNull: false
   }
 }, {
-  sequelize, 
-  tableName: 'role',
-  underscored: true
-})
+  sequelize,
+  tableName: 'role'
+});
 
 module.exports = Role;

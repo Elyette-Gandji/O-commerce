@@ -9,9 +9,8 @@ OrderHasProduct.init({
     allowNull: false
   }
 }, {
-  sequelize, 
-  tableName: 'order_has_product',
-  underscored: true
-})
+  sequelize,
+  tableName: 'order_has_product'
+});
 
 module.exports = OrderHasProduct;

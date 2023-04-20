@@ -7,13 +7,11 @@ const sequelize = new Sequelize(
   process.env.DB_PASSWORD,
   {
     host: process.env.DB_HOST,
-    dialect: 'postgres'
-  },
-  {
+    dialect: 'postgres',
     define: {
       freezeTableName: true,
       underscored: true,
-      createdAt: "created_at", 
+      createdAt: "created_at",
       updatedAt: "updated_at",
     }
   }

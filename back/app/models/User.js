@@ -11,19 +11,19 @@ User.init({
   last_name: {
     type: DataTypes.STRING,
     allowNull: false
-  }, 
+  },
   email: {
     type: DataTypes.STRING,
     allowNull: false
-  }, 
+  },
   password: {
     type: DataTypes.INTEGER,
     allowNull: false
   }
 }, {
-  sequelize, 
-  tableName: "user",
-  underscored: true
+  sequelize,
+  tableName: "user"
+
 });
 
 

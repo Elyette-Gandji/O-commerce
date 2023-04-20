@@ -11,9 +11,8 @@ Promotion.init({
     type: DataTypes.DATE
   }
 }, {
-  sequelize, 
-  tableName: 'promotion',
-  underscored: true
-})
+  sequelize,
+  tableName: 'promotion'
+});
 
 module.exports = Promotion;

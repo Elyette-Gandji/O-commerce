@@ -9,9 +9,8 @@ UserHasVote.init({
     allowNull: false
   }
 }, {
-  sequelize, 
-  tableName: 'user_has_vote',
-  underscored: true
-})
+  sequelize,
+  tableName: 'user_has_vote'
+});
 
 module.exports = UserHasVote;

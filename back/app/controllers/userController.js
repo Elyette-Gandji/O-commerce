@@ -14,7 +14,8 @@ const userController = {
         attributes: { exclude: ['created_at', 'updated_at'] },
         include: [
           {
-            association: 'role'
+            association: 'role',
+            attributes: ['name']
           }
         ]
       });
@@ -34,51 +35,17 @@ const userController = {
   getOneUser: async (req, res) => {
     try {
       const userId = Number(req.params.id);
-      const user = await findByPk(userId, {
+      const user = await User.findByPk(userId, {
         attributes: { exclude: ['created_at', 'updated_at'] },
         include: [
           {
-            association: 'role'
-          },
-          {
-            association: 'addresses',
-            attributes: { exclude: ['created_at', 'updated_at'] }
-          },
-          {
-            association: 'comments',
-            through: { attributes: [] }
-          },
-          {
-            association: 'orders'
-          },
-          {
-            association: 'payments',
-            through: { attributes: [] }
+            association: 'role',
+            attributes: ['name']
           }
         ]
       });
       if (user) {
         res.status(200).json(user);
-      } else {
-        res.status(400).json('No user found');
-      }
-    } catch (error) {
-      console.trace(error);
-      res.status(500).json(error.toString());
-    }
-  },
-
-  /***
-   * Delete one specific User
-   * @param userId Id of the user from req.params
-   */
-  deleteOneUser: async (req, res) => {
-    try {
-      const userId = Number(req.params.id);
-      const user = await findByPk(userId);
-      if (user) {
-        await user.destroy();
-        res.status(200).json('OK');
       } else {
         res.status(400).json('No user found');
       }
@@ -102,13 +69,12 @@ const userController = {
       }
       const { last_name, first_name, email, password } = req.body;
       // il faudra hacher le password avant de l'ajouter à la BDD
-      const newUser = User.build({
+      const newUser = await User.create({
         last_name,
         first_name,
         email,
         password
       });
-      newUser.save();
       res.status(201).json(newUser);
     } catch (error) {
       console.trace(error);
@@ -125,8 +91,7 @@ const userController = {
   updateUser: async (req, res) => {
     try {
       const userId = Number(req.params.id);
-      // il faut verifier les données de req.body avec express validator
-      // et hacher le password si necesssaire
+      //  hacher le password si necesssaire
       const { last_name, first_name, email, password } = req.body;
       const user = await User.findByPk(userId);
       // if user exist in DB, update property if it change
@@ -144,7 +109,27 @@ const userController = {
       console.trace(error);
       res.status(500).json(error.toString());
     }
-  }
+  }, 
+
+    /***
+   * Delete one specific User
+   * @param userId Id of the user from req.params
+   */
+    deleteOneUser: async (req, res) => {
+      try {
+        const userId = Number(req.params.id);
+        const user = await User.findByPk(userId);
+        if (user) {
+          await user.destroy();
+          res.status(200).json('OK');
+        } else {
+          res.status(400).json('No user found');
+        }
+      } catch (error) {
+        console.trace(error);
+        res.status(500).json(error.toString());
+      }
+    }
 };
 
 module.exports = userController;

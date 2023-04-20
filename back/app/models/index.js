@@ -76,7 +76,7 @@ Product.belongsToMany(Category, {
   foreignKey: 'category_id',
   otherKey: 'product_id',
   as: 'categories',
-  through: 'category_as_product'
+  through: 'category_has_product'
 });
 
 Order.belongsToMany(Product, {
@@ -93,18 +93,15 @@ Product.belongsToMany(Order, {
   through: 'order_has_product'
 });
 
-
-Comment.belongsToMany(User, {
-  foreignKey: "user_id",
-  otherKey: "comment_id",
-  as: "users",
+Product.belongsToMany(User, {
+  foreignKey: "product_id",
+  as: "votes",
   through: "user_has_vote"
 });
 
-User.belongsToMany(Comment, {
-  foreignKey: "comment_id",
-  otherKey: "user_id",
-  as: "comments",
+User.belongsToMany(Product, {
+  foreignKey: "user_id",
+  as: "products",
   through: "user_has_vote"
 });
 
@@ -124,7 +121,6 @@ module.exports = {
   Address,
   Category,
   Comment,
-  Order,
   Order,
   Payment,
   Product,

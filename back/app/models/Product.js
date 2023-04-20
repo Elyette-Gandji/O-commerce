@@ -15,15 +15,14 @@ Product.init({
   stock: {
     type: DataTypes.INTEGER,
     allowNull: false
-  }, 
+  },
   price: {
     type: DataTypes.INTEGER,
     allowNull: false
   }
 }, {
-  sequelize, 
-  tableName: 'product',
-  underscored: true
-})
+  sequelize,
+  tableName: 'product'
+});
 
 module.exports = Product;
