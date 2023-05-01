@@ -22,8 +22,8 @@ User.init({
   }
 }, {
   sequelize,
-  tableName: "user",
-  underscored: true
+  tableName: "user"
+
 });
 
 

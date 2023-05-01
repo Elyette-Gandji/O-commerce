@@ -10,8 +10,7 @@ Category.init({
   }
 }, {
   sequelize,
-  tableName: 'category',
-  underscored: true
+  tableName: 'category'
 });
 
 module.exports = Category;

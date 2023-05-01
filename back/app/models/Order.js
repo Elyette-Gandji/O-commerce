@@ -10,8 +10,7 @@ Order.init({
   }
 }, {
   sequelize,
-  tableName: 'order',
-  underscored: true
+  tableName: 'order'
 });
 
 module.exports = Order;

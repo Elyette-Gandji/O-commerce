@@ -14,8 +14,7 @@ Comment.init({
   }
 }, {
   sequelize,
-  tableName: 'comment',
-  underscored: true
+  tableName: 'comment'
 });
 
 module.exports = Comment;

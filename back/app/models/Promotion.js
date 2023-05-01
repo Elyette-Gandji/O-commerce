@@ -12,8 +12,7 @@ Promotion.init({
   }
 }, {
   sequelize,
-  tableName: 'promotion',
-  underscored: true
+  tableName: 'promotion'
 });
 
 module.exports = Promotion;

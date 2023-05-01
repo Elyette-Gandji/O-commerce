@@ -30,15 +30,6 @@ User.belongsTo(Role, {
   as: 'role'
 });
 
-Comment.belongsTo(User, {
-  foreignKey: 'user_id',
-  as: 'user'
-});
-
-User.hasMany(Comment, {
-  foreignKey: 'user_id',
-  as: 'comments'
-});
 
 Order.belongsTo(User, {
   foreignKey: 'user_id',
